@@ -1,0 +1,29 @@
+/* logo
+	--logo-gap: number value (em | rem | px | ...)
+	--height: number value
+	--width: number value
+	--ft-size: number value
+*/
+.logo {
+    /* --logo-gap: ; */
+    /* --height: ; */
+    /* --width: ; */
+    --ft-size: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    gap: var(--logo-gap, var(--gap-small));
+    text-decoration: none;
+    
+    svg {
+        height: var(--height, 4rem);
+        min-height: var(--height, 4rem);
+        max-height: var(--height, 4rem);
+        width: var(--width, 4rem);
+        min-width: var(--width, 4rem);
+        max-width: var(--width, 4rem);
+    }
+    span {
+        font-size: var(--ft-size, var(--ft-large));
+    }
+}

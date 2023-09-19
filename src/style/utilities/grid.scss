@@ -1,0 +1,28 @@
+/* Grid
+--columns: number value
+--columns-sm: number-value
+--columns-md: number-value
+--columns-lg: number-value
+--grid-gap: number value
+*/
+.grid {
+    --columns: 1fr;
+    display: grid;
+    grid-template-columns: var(--columns-sm, var(--columns));
+    gap: var(--grid-gap, var(--gap-large));
+    
+    @media (min-width: 41.25em) {
+        --columns: repeat(2, 1fr);
+        grid-template-columns: var(--columns-md, var(--columns));
+    }
+    @media (min-width: 60em) {
+        --columns: repeat(3, 1fr);
+        grid-template-columns: var(--columns-lg, var(--columns));
+    }
+    @media (min-width: 57.5em) {
+        &-columns {
+            grid-auto-flow: column;
+            grid-auto-columns: 1fr;
+        }
+    }
+}

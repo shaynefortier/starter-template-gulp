@@ -1,0 +1,55 @@
+/* container
+    --container-margin-top: number value
+	--container-padding-y: number value
+	--container-padding-x: number value
+    --radius: number value
+    --color: color value
+	--opacity: float number from 0 to 1
+*/
+.container {
+        padding-block: var(--container-padding-y, var(--section-pad-block));
+        width: min(
+            100% - var(--container-padding-x, var(--section-pad-inline)),
+            var(--max-width)
+        );
+        margin-inline: auto;
+        border-radius: var(--radius, 0);
+
+        &--small {
+            padding-block: var(--section-pad-block-small);
+        }
+        &--background {
+            background-color: hsl(var(--hsl-background) / var(--opacity, 1));
+            color: var(--color, var(--color-text));
+            padding-inline: var(--container-padding-x, var(--section-pad-inline));
+            margin-block-start: var(--container-margin-y, var(--section-pad-block));
+        }
+        
+        &--primary {
+            background-color: hsl(var(--hsl-primary) / var(--opacity, 1));
+            color: var(--color, var(--color-text));
+            padding-inline: var(--container-padding-x, var(--section-pad-inline));
+            margin-block-start: var(--container-margin-y, var(--section-pad-block));
+        }
+        
+        &--secondary {
+            background-color: hsl(var(--hsl-secondary) / var(--opacity, 1));
+            color: var(--color, var(--color-text));
+            padding-inline: var(--container-padding-x, var(--section-pad-inline));
+            margin-block-start: var(--container-margin-y, var(--section-pad-block));
+        }
+        
+        &--accent {
+            background-color: hsl(var(--hsl-accent) / var(--opacity, 1));
+            color: var(--color, var(--color-background));
+            padding-inline: var(--container-padding-x, var(--section-pad-inline));
+            margin-block-start: var(--container-margin-y, var(--section-pad-block));
+        }
+        
+        &--text {
+            background-color: hsl(var(--hsl-text) / var(--opacity, 1));
+            color: var(--color, var(--color-background));
+            padding-inline: var(--container-padding-x, var(--section-pad-inline));
+            margin-block-start: var(--container-margin-y, var(--section-pad-block));
+        }
+    }

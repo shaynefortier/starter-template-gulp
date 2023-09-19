@@ -1,0 +1,110 @@
+:root {
+    /* COLORS */
+    --color-dark: #000;
+    --color-light: #fff;
+
+    --hsl-text: 192 100% 10%;
+    --hsl-background: 192 63% 97%;
+    --hsl-primary: 192 65% 72%;
+    --hsl-secondary: 193 66% 93%;
+    --hsl-accent: 192 66% 23%;
+
+    --color-text: hsl(var(--hsl-text));
+    --color-background: hsl(var(--hsl-background));
+    --color-primary: hsl(var(--hsl-primary));
+    --color-secondary: hsl(var(--hsl-secondary));
+    --color-accent: hsl(var(--hsl-accent));
+
+    --clr-percent: 50%;
+    --color-text-hover: color-mix(
+        in oklab,
+        var(--color-text) var(--clr-percent),
+        #000
+    );
+    --color-background-hover: color-mix(
+        in oklab,
+        var(--color-background) var(--clr-percent),
+        #000
+    );
+    --color-primary-hover: color-mix(
+        in oklab,
+        var(--color-primary) var(--clr-percent),
+        #000
+    );
+    --color-secondary-hover: color-mix(
+        in oklab,
+        var(--color-secondary) var(--clr-percent),
+        #000
+    );
+    --color-accent-hover: color-mix(
+        in oklab,
+        var(--color-accent) var(--clr-percent),
+        #000
+    );
+
+    /* FONTS */
+    --ft-xxlarge: 4rem;
+    --ft-xlarge: 3rem;
+    --ft-large: 2rem;
+    --ft-medium: 1rem;
+    --ft-small: 0.8rem;
+
+    --ft-primary: Kanit, system-ui, sans-serif; /* Text */
+    --ft-heading: Handlee, sans-serif; /* Headings */
+
+    /* DIMENSIONS */
+    --gap-xl: 3rem;
+    --gap-large: 1.5rem;
+    --gap-med: 1rem;
+    --gap-small: 0.5rem;
+
+    --section-pad-block: 2rem;
+    --section-pad-block-small: 1rem;
+    --section-pad-inline: 1rem;
+
+    --max-width: 65.125rem;
+
+    /* forms */
+    --corner-radius: 0.2em;
+
+        /* Swiper Overrides */
+        --swiper-theme-color: var(--color-primary);
+        --swiper-pagination-bullet-size: 1rem;
+        --swiper-pagination-color: var(--color-accent);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --hsl-text: 192 63% 97%;
+        --hsl-background: 192 100% 10%;
+        --hsl-primary: 192 65% 72%;
+        --hsl-secondary: 193 64% 13%;
+        --hsl-accent: 192 65% 53%;
+
+        --color-text-hover: color-mix(
+            in oklab,
+            var(--color-text) var(--clr-percent),
+            #fff
+        );
+        --color-background-hover: color-mix(
+            in oklab,
+            var(--color-background) var(--clr-percent),
+            #fff
+        );
+        --color-primary-hover: color-mix(
+            in oklab,
+            var(--color-primary) var(--clr-percent),
+            #fff
+        );
+        --color-secondary-hover: color-mix(
+            in oklab,
+            var(--color-secondary) var(--clr-percent),
+            #fff
+        );
+        --color-accent-hover: color-mix(
+            in oklab,
+            var(--color-accent) var(--clr-percent),
+            #fff
+        );
+    }
+}

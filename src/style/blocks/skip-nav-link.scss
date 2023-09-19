@@ -1,0 +1,13 @@
+.skip-nav-link{
+    background-color: var(--color-text);
+    padding: 0.6rem 0.8rem;
+    position: absolute;
+    left: 1rem;
+    transform: translateY(-120%);
+    transition: transform 250ms ease;
+
+    &:focus{
+        color: var(--color-background);
+        transform: translateY(1rem);
+    }
+}

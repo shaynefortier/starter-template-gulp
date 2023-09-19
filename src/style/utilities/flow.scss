@@ -1,0 +1,6 @@
+/* flow
+	--flow-spacer: number (em|rem|px|...)
+*/
+.flow > * + * {
+    margin-block-start: var(--flow-spacer, 1em);
+}

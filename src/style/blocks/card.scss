@@ -1,0 +1,46 @@
+/* Card
+--color: color value
+--card-hsl-color: hsl color value without the hsl()
+--opacity: float number from 0 to 1
+--card-padding-y: number value
+--card-padding-x: number value
+--card-hz-direction: flex-direction value
+*/
+.card {
+    background-color: hsl(
+        var(--card-hsl-color, var(--hsl-secondary)) / var(--opacity, 1)
+    );
+    border-radius: var(--radius, var(--corner-radius));
+    overflow: clip;
+
+    &__content {
+        padding: var(--card-padding-y, var(--section-pad-inline))
+            var(--card-padding-x, var(--section-pad-block-small));
+        color: var(--color, var(--color-text));
+    }
+
+    &__media {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &[data-direction="horizontal"]{
+        /* --card-direction: row; */
+        display: flex;
+        flex-direction: var(--card-hz-direction, row);
+        flex-wrap: wrap;
+
+        & .card__media{
+            flex-grow: 1;
+            flex-basis: 16rem;
+            object-fit: cover;
+        }
+        
+        & .card__content{
+            flex-grow: 9999;
+            flex-basis: 50%;
+            align-self: center;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+/* Main navigation
+	--nav-jcontent: justify-content properties
+	--nav-gap: number value (em | rem | px | ...)
+	--color-link: color properties
+	--color-link-hover: color properties
+	--toggle-size: number value
+*/
+.main-nav {
+    /* --nav-align-x: ; */
+    /* --nav-gap: ; */
+    /* --color-link: ; */
+    /* --color-link-hover: ; */
+    /* --toggle-size: ; */
+
+    width: 100%;
+    background-color: var(--color-background);
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    z-index: 2;
+    padding-inline-end: var(--section-pad-inline);
+    padding-block-end: var(--section-pad-block-small);
+    transition: right 250ms ease;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: var(--nav-align-x, flex-end);
+        gap: var(--nav-gap, var(--gap-small));
+    }
+    li {
+        list-style: none;
+    }
+    &__link a {
+        color: var(--color-link, var(--color-accent));
+        text-decoration: none;
+    }
+    &__link:hover a {
+        color: var(--color-link-hover, var(--color-accent-hover));
+        text-decoration: none;
+    }
+    &-toggle {
+        background-color: transparent;
+        padding: 0.5rem;
+    
+        /* outline: solid 2px pink; */
+    }
+    &-toggle svg {
+        min-width: var(--toggle-size, 40px);
+        min-height: var(--toggle-size, 40px);
+    }
+    &-toggle .middle {
+        transition: opacity 250ms linear;
+    }
+    &-toggle .top {
+        transform-origin: top center;
+        transition: 250ms linear;
+    }
+    &-toggle .bottom {
+        transform-origin: bottom center;
+        transition: 250ms linear;
+    }
+
+    @media (min-width: 46em) {
+        position: static;
+        padding-inline-end: 0;
+        padding-block-end: 0;
+        
+        ul {
+            flex-direction: row;
+            justify-content: var(--nav-align-x, flex-end);
+            align-items: center;
+        }
+        
+        &-toggle {
+            display: none;
+        }
+    }
+}
+
+[data-component="Header"].active .main-nav {
+    right: 0;
+}
+[data-component="Header"].active .main-nav-toggle .top {
+    transform: rotateZ(45deg) translateX(25%) translateY(25%);
+}
+[data-component="Header"].active .main-nav-toggle .middle {
+    opacity: 0;
+}
+[data-component="Header"].active .main-nav-toggle .bottom {
+    transform: rotateZ(-45deg) translateX(32%) translateY(-10%);
+}

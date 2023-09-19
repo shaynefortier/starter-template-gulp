@@ -1,0 +1,57 @@
+/* buttons
+	--pad-y: number value
+	--pad-x: number value
+	--radius: number value
+	--color-link: color properties
+	--color-link-dark: color properties
+*/
+.btn{
+    /* --pad-y: ; */
+    /* --pad-x: ; */
+    /* --radius: ; */
+    /* --color-link: ; */
+    /* --color-link-dark: ; */
+
+    display: inline-block;
+    padding: var(--pad-y, var(--gap-small)) var(--pad-x, var(--gap-med));
+    border-radius: var(--radius, var(--corner-radius));
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 250ms ease-out;
+    border: none;
+
+    &-primary {
+        background-color: var(--color-primary);
+        color: var(--color-link, var(--color-dark));
+    }
+    &-primary:hover,
+    &-primary:focus {
+        background-color: var(--color-primary-hover);
+        color: var(--color-link, var(--color-light));
+    }
+    &-secondary {
+        background-color: var(--color-secondary);
+        color: var(--color-link, var(--color-dark));
+    }
+    &-secondary:hover,
+    &-secondary :focus {
+        background-color: var(--color-secondary-hover);
+        color: var(--color-link, var(--color-light));
+    }
+    @media (prefers-color-scheme: dark) {
+        &-primary {
+            color: var(--color-link-dark, var(--color-dark));
+        }
+        &-primary:hover,
+        &-primary:focus {
+            color: var(--color-link-dark, var(--color-dark));
+        }
+        &-secondary {
+            color: var(--color-link-dark, var(--color-light));
+        }
+        &-secondary:hover,
+        &-secondary :focus {
+            color: var(--color-link-dark, var(--color-dark));
+        }
+    }
+}

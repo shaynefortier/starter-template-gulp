@@ -1,0 +1,44 @@
+/* sections */
+[data-component="Header"] {
+    position: relative;
+}
+
+/* links */
+a {
+    color: var(--color-accent);
+    
+    &:hover,
+    &:focus {
+        color: var(--color-accent-hover);
+    }
+}
+
+/* text */
+p {
+    font-size: var(--ft-medium);
+    line-height: 1.6em;
+}
+
+/* marker, highlight, selections */
+::selection,
+mark {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+}
+
+/* lists */
+
+ul,
+ol {
+    padding-inline-start: calc(var(--section-pad-inline) + var(--gap-small));
+}
+
+/* other */
+abbr {
+    cursor: help;
+}
+figure {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

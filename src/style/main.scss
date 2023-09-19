@@ -1,0 +1,21 @@
+// DEPENDENCIES =====================================================
+// Swiper.js
+@use '../../node_modules/swiper/swiper.scss';
+@use '../../node_modules/swiper/modules/navigation.scss';
+@use '../../node_modules/swiper/modules/pagination.scss';
+@use '../../node_modules/swiper/modules/keyboard.scss';
+@use '../../node_modules/swiper/modules/autoplay.scss';
+@use '../../node_modules/swiper/modules/effect-fade.scss';
+@use '../../node_modules/swiper/modules/effect-flip.scss';
+@use '../../node_modules/swiper/modules/effect-cube.scss';
+@use '../../node_modules/swiper/modules/effect-coverflow.scss';
+@use '../../node_modules/swiper/modules/effect-cards.scss';
+
+// FONTS ============================================================
+@use 'fonts.scss';
+
+// CUSTOM CODES =====================================================
+@use 'globals';
+@use 'utilities';
+@use 'blocks';
+@use 'overrides';
