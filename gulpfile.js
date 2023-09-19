@@ -113,7 +113,7 @@ function postBuild(cb){
     cb();
 }
 
-exports.default = parallel(watchFiles, serve);
+exports.default = series(clean, copyHTML, copyAssets, buildSass, buildJS, parallel(watchFiles, serve));
 exports.build = series(clean, copyHTML, copyAssets, buildSass, buildJS, postBuild);
 exports.buildPurist = series(clean, copyHTML, copyJS, copyAssets, buildSass, replaceJSinHTML);
 exports.webpConvert = series(toWebP, HTMLwebP);
