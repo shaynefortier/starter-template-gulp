@@ -16,6 +16,7 @@
     padding: var(--pad-y, var(--gap-small)) var(--pad-x, var(--gap-med));
     border-radius: var(--radius, var(--corner-radius));
     text-decoration: none;
+    text-transform: uppercase;
     cursor: pointer;
     transition: all 250ms ease-out;
     border: none;

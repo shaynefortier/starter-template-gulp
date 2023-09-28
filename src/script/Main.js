@@ -1,9 +1,10 @@
 import Header from "./modules/Header.js";
 import Carousel from "./modules/Carousel.js";
-/**
- * Class Main that runs the other JavaScript codes.
- */
+/** Class Main that runs the other JavaScript codes. */
 class Main{
+    /**
+     * The main class that initiate the other components
+     */
     constructor(){
         this.componentList = {
             Header,

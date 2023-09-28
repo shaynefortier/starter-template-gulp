@@ -1,39 +1,46 @@
 # Legwarmer Starter Theme
 
-## Un Environnement de Développement Web Axé sur l'Efficacité
+The goal is to set up a personalized framework for myself. It contains pre-made CSS/SCSS classes to build a webpage quickly. Instead of relying only on classes into the HTML as modifier, I use the `data-` attributes inspired by the CUBE CSS methodology and changing custom properties in the style attribute as modifier. The utility classes are mainly used to set up foundations to the HTML.
 
-Le développement web évolue rapidement, et avec lui, les besoins des développeurs. Pour rester compétitif et accélérer la création de sites web de qualité, un environnement de développement efficace est essentiel. Laissez-moi vous présenter une structure innovante qui promet de révolutionner votre processus de développement.
+On the JavaScript side, I use the modern libraries and make them easier to use by making classes that are triggered when an HTML element contains a `data-component` attribute with the appropriate component.
 
-## Technologies Utilisées
+If you use VSCode, VSCodium, VSCode OSS, or any equivalent, you have access to the snippets I made for building an HTML component quickly or make your own JS component.
 
-Au cœur de cet environnement de développement, vous trouverez les technologies web de base : HTML, CSS, JavaScript, et même la possibilité d'intégrer TypeScript dans le futur. Cette flexibilité garantit que vous avez les outils nécessaires pour réaliser divers projets.
+## How to instanciate a component
 
-## Structure Organisée
+Look the doc to build the neccessary HTML structure for the corresponding component, then add `data-component` to the HTML container with the component name as value.
 
-L'organisation des fichiers est une clé pour une gestion de projet efficace. Dans cette structure, les pages HTML résident à la racine, tandis que les fichiers CSS et SCSS sont regroupés dans le dossier "style". Le SCSS suit la méthodologie "CUBE CSS" et est découpé en dossiers pour chaque groupe de classe, favorisant ainsi la modularité. Les fichiers JavaScript sont organisés dans le dossier "script", avec "Main.js" à la racine et d'autres dans le sous-dossier "modules", chaque composante ayant son propre fichier. Les images et les assets sont regroupés dans le dossier "assets", ce qui simplifie leur gestion.
+Example:
+```
+HTML
+    <!-- The container is a Carousel component -->
+    <div class="swiper" data-component="Carousel">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				Slide 1
+			</div>
+			<div class="swiper-slide">
+				Slide 2
+			</div>
+			<div class="swiper-slide">
+				Slide 3
+			</div>
+			...
+		</div>
+		<div class="swiper-pagination"></div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
+```
 
-## Styles CSS Optimisés
+## TODO
 
-La gestion des styles CSS est facilitée grâce à l'utilisation de Sass comme préprocesseur. PostCSS est employé pour minifier le code CSS et ajouter les préfixes nécessaires, garantissant une compatibilité optimale avec les navigateurs.
-
-## Composantes JavaScript Réutilisables
-
-Les composantes JavaScript sont le joyau de cet environnement. Elles sont conçues pour apporter de l'interactivité aux pages web avec une simplicité déconcertante. Il suffit de placer l'attribut "data-component" avec la valeur de la composante souhaitée pour les instancier automatiquement. Certaines de ces composantes tirent parti de bibliothèques tierces pour des fonctionnalités spécifiques, mais aucune dépendance framework n'est imposée.
-
-## Gestion des Dépendances
-
-La plupart des dépendances de bibliothèques sont gérées via npm, offrant un contrôle total sur les packages utilisés. Cependant, certaines ressources, telles qu'Iconify, sont chargées à partir d'un CDN externe pour optimiser les performances.
-
-## Versions Variées pour Divers Besoins
-
-Il convient de noter que cet environnement de développement est hautement adaptable. Il existe différentes versions, y compris une version "puriste" avec uniquement les langages de base, une version webpack pour le développement et la compilation, ainsi qu'une version Gulp qui gère tout grâce à des plugins. Cependant, toutes ces versions partagent la même structure de fichiers cohérente, ce qui simplifie la transition entre elles.
-
-## Tâches
-
-- [ ] Support TypeScript
+- [ ] TypeScript Support
 - [ ] Documentation
+- [ ] Switch from hsl() to oklch()
+- [ ] Update existing component for @container implementation
 
-### Composantes
+### JS Components
 
 - [x] Carousel
 - [x] Header
@@ -43,16 +50,21 @@ Il convient de noter que cet environnement de développement est hautement adapt
 - [ ] Parallax
 - [ ] SortList
 - [ ] ModelViewer
-- [ ] Tooltip / Popover (Bientôt HTML,CSS uniquement)
+- [ ] Tooltip / Popover (On native HTML,CSS soon)
 - [ ] QR Code
 - [ ] Toaster
 - [ ] SortTable
 - [ ] Accordion
+- [ ] Side Accordion
 - [ ] Light/Dark Mode
 - [ ] Isotop ?
 - [ ] Touch
 - [ ] VideoPlayer
 - [ ] MusicPlayer
+- [ ] Tabs
+- [ ] CopyToClipboard
+- [ ] Modals
+- [ ] CookieConsent
 
 ### JS Libraries
 
@@ -75,6 +87,7 @@ Il convient de noter que cet environnement de développement est hautement adapt
 - [ ] Video.js
 - [ ] p2p-media-loader
 - [ ] JavascriptSubtitlesOctopus
+- [ ] Forms
 
 ### CSS Libraries
 
@@ -86,20 +99,27 @@ Il convient de noter que cet environnement de développement est hautement adapt
 - [ ] MoreToggles.css
 - [ ] fluiditype
 
-### Structure HTML/CSS
+### HTML/CSS Structure
 
 - [x] Cartes
 - [x] Bouton
 - [x] Navigation principale
 - [x] Logo
 - [x] Image arrière-plan
-- [ ] Parallax (CSS seulement)
+- [ ] Parallax (CSS only)
 - [ ] Masonry
+- [ ] container full width (image to the side)
 
-### Version de l'environnement
+### CSS Utilities
+
+
+
+### Runtime and template versions to try
 
 - [x] Purist
 - [x] Gulp
-- [ ] Astro
 - [x] Vite
-- [ ] Thème WordPress
+- [ ] Astro
+- [ ] Qwik
+- [ ] WordPress Theme
+- [ ] DecapCMS Theme

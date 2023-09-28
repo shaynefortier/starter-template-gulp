@@ -1,12 +1,11 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Keyboard, Autoplay, EffectFade, EffectCube, EffectFlip, EffectCoverflow, EffectCards } from "swiper/modules";
+// import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs';
 
-/** 
-* Carousel class to instanciate a carousel through Swiper
-*/
-export default class Carousel {
+/** Carousel class to instanciate a carousel through Swiper */
+class Carousel {
     /**
-     * Constructor
+     * Using the SwiperJS library, it renders a carousel to the HTML element
      * @param {HTMLElement} element - HTML element associated to data-component="Carousel"
      */
     constructor(element){
@@ -55,6 +54,9 @@ export default class Carousel {
         new Swiper(this.element, this.options);
     }
 
+    /**
+     * Called automatically, it checks if other options are precized
+     */
     setOptions(){
         // autoplay
         if('autoplay' in this.element.dataset ){
@@ -127,3 +129,4 @@ export default class Carousel {
         }
     }
 }
+export default Carousel;

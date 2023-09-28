@@ -9,6 +9,7 @@ const fiveserver = require('five-server').default;
 const webpack = require('webpack-stream');
 const webpackConfig = require('./webpack.config.js');
 const replace = require('gulp-string-replace');
+const jsdoc = require('gulp-jsdoc3');
 
 function defaultTask(cb) {
     // place code for your default task here
@@ -113,8 +114,14 @@ function postBuild(cb){
     cb();
 }
 
+function generateJSDocs(cb){
+    src(['README.md', './src/**/*.js'], {read: false})
+    .pipe(jsdoc(cb));
+}
+
 exports.default = series(clean, copyHTML, copyAssets, buildSass, buildJS, parallel(watchFiles, serve));
 exports.build = series(clean, copyHTML, copyAssets, buildSass, buildJS, postBuild);
 exports.buildPurist = series(clean, copyHTML, copyJS, copyAssets, buildSass, replaceJSinHTML);
 exports.webpConvert = series(toWebP, HTMLwebP);
 exports.avifConvert = series(toAvif, HTMLavif);
+exports.docs = generateJSDocs;
