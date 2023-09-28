@@ -19,25 +19,10 @@ class Carousel {
                 nextEl: this.element.querySelector('.swiper-button-next'),
                 prevEl: this.element.querySelector('.swiper-button-prev'),
             },
-            slidesPerView: 1.2,
             spaceBetween: 16,
-            centeredSlides: true,
             grabCursor: true,
             keyboard: {
                 enabled: true,
-            },
-            breakpoints: {
-                580: {
-                    slidesPerView: 1.5,
-                },
-                920: {
-                    slidesPerView: 1.8,
-                    spaceBetween: 24,
-                },
-                1080: {
-                    slidesPerView: 2,
-                    spaceBetween: 32,
-                },
             },
         };
 
@@ -85,21 +70,6 @@ class Carousel {
                         this.options.fadeEffect = {
                             crossFade: true
                         };
-                        this.options.slidesPerView = 1;
-                        this.options.spaceBetween = 0;
-                        this.options.breakpoints = {
-                            580: {
-                                slidesPerView: 1,
-                            },
-                            920: {
-                                slidesPerView: 1,
-                                spaceBetween: 0,
-                            },
-                            1080: {
-                                slidesPerView: 1,
-                                spaceBetween: 0,
-                            },
-                        };
                     break;
                     
                 case 'flip':
@@ -126,6 +96,29 @@ class Carousel {
                     console.warn(`The transition you entered is not available !`);
                     break;
             }
+        }
+
+        // Centered Slides
+        if('centered' in this.element.dataset){
+            this.options.centeredSlides = true;
+        }
+
+        // Slides per view
+        if('slidesPerView' in this.element.dataset && !isNaN(Number(this.element.dataset.slidesPerView))){
+            const value = Number(this.element.dataset.slidesPerView);
+            this.options.breakpoints = {
+                580: {
+                    slidesPerView: value * 0.50,
+                },
+                920: {
+                    slidesPerView: value * 0.75,
+                    spaceBetween: 24,
+                },
+                1080: {
+                    slidesPerView: value,
+                    spaceBetween: 32,
+                },
+            };
         }
     }
 }
