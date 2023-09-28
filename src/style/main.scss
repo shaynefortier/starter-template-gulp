@@ -1,3 +1,6 @@
+// FONTS ============================================================
+@use 'fonts.scss';
+
 // DEPENDENCIES =====================================================
 // Swiper.js
 @use '../../node_modules/swiper/swiper.scss';
@@ -10,9 +13,6 @@
 @use '../../node_modules/swiper/modules/effect-cube.scss';
 @use '../../node_modules/swiper/modules/effect-coverflow.scss';
 @use '../../node_modules/swiper/modules/effect-cards.scss';
-
-// FONTS ============================================================
-@use 'fonts.scss';
 
 // CUSTOM CODES =====================================================
 @use 'globals';

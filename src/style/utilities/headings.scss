@@ -1,7 +1,10 @@
-/* headings
-	--fw: font-weight values
-	--lh: number value [ em | rem | px | ... ]
-*/
+/// Headings
+/// 
+/// --fw: font-weight values
+/// 
+/// --lh: number value [ em | rem | px | ... ]
+/// 
+/// @group Headings
 .h1,
 h1 {
     font-family: var(--font-family, var(--ft-heading));
@@ -9,18 +12,21 @@ h1 {
     font-weight: var(--fw, 900);
     line-height: var(--lh, 1em);
 }
+/// @group Headings
 .h2,
 h2 {
     font-size: var(--ft-xlarge);
     font-weight: var(--fw, 800);
     line-height: var(--lh, 1.2em);
 }
+/// @group Headings
 .h3,
 h3 {
     font-size: var(--ft-large);
     font-weight: var(--fw, 700);
     line-height: var(--lh, 1.3em);
 }
+/// @group Headings
 .h4,
 h4 {
     font-size: var(--ft-medium);

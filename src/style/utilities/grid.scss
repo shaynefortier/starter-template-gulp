@@ -1,15 +1,25 @@
-/* Grid
---columns: number value
---columns-sm: number-value
---columns-md: number-value
---columns-lg: number-value
---grid-gap: number value
-*/
+/// Grid - setup a grid structure to the elements
+/// 
+/// --columns: number value
+/// 
+/// --columns-sm: number-value
+/// 
+/// --columns-md: number-value
+/// 
+/// --columns-lg: number-value
+/// 
+/// --grid-gap: number value
+/// 
+/// --align: align-items value
+/// 
+/// --justify: justify-items value
 .grid {
     --columns: 1fr;
     display: grid;
     grid-template-columns: var(--columns-sm, var(--columns));
     gap: var(--grid-gap, var(--gap-large));
+    align-items: var(--align, normal);
+    justify-items: var(--justify, legacy);
     
     @media (min-width: 41.25em) {
         --columns: repeat(2, 1fr);

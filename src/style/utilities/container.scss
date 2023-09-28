@@ -1,11 +1,16 @@
-/* container
-    --container-margin-top: number value
-	--container-padding-y: number value
-	--container-padding-x: number value
-    --radius: number value
-    --color: color value
-	--opacity: float number from 0 to 1
-*/
+/// container
+/// 
+/// --container-margin-top: number value
+/// 
+/// --container-padding-y: number value
+/// 
+/// --container-padding-x: number value
+/// 
+/// --radius: number value
+/// 
+/// --color: color value
+/// 
+/// --opacity: float number from 0 to 1
 .container {
         padding-block: var(--container-padding-y, var(--section-pad-block));
         width: min(

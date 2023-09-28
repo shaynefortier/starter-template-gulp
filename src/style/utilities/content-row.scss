@@ -1,4 +1,14 @@
+/// Content-row
 .content-row {
     display: flex;
+    flex-flow: var(--direction, row) var(--wrap, nowrap);
+    justify-content: var(--justify-content, flex-start);
+    align-items: var(--align-items, stretch);
     gap: var(--gap-large);
+
+    @for $i from -10 through 10{
+        & > [data-order="#{$i}"]{
+            order: $i;
+        }
+    }
 }
