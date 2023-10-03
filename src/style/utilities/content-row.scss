@@ -1,14 +1,33 @@
+$aligns: auto, flex-start, flex-end, center, baseline, stretch;
+
 /// Content-row
 .content-row {
     display: flex;
     flex-flow: var(--direction, row) var(--wrap, nowrap);
     justify-content: var(--justify-content, flex-start);
     align-items: var(--align-items, stretch);
-    gap: var(--gap-large);
+    gap: var(--flex-gap, var(--gap-large));
 
     @for $i from -10 through 10{
-        & > [data-order="#{$i}"]{
+        & > .order-#{$i}{
             order: $i;
         }
     }
+
+    @for $i from 0 to 11{
+        & > .grow-#{$i}{
+            flex-grow: $i;
+        }
+
+        & > .shrink-#{$i}{
+            flex-shrink: $i;
+        }
+    }
+
+    @each $a in $aligns{
+        & > .align-self-#{$a}{
+            align-self: $a;
+        }
+    }
+
 }
