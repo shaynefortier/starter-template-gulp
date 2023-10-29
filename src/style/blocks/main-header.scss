@@ -10,7 +10,7 @@ $breakpoints: 60em;
     justify-content: space-between;
     align-items: center;
     row-gap: var(--gutter);
-    width: min(100% - var(--section-pad-inline), var(--max-width));
+    width: min(100% - var(--section-pad-block-xs), var(--max-width));
     margin-inline: auto;
     padding-block: var(--section-pad-block-xs);
 
@@ -20,6 +20,7 @@ $breakpoints: 60em;
             gap: var(--gutter-sm);
             align-items: center;
             list-style: none;
+            padding-left: 0;
 
             .link a{
                 text-decoration: none;

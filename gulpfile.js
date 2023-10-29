@@ -1,16 +1,11 @@
 const { series, src, dest, parallel, watch } = require('gulp');
 const del = require('delete');
-const webp = require('gulp-webp');
-const avif  = require('gulp-avif');
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const fiveserver = require('five-server').default;
 const webpack = require('webpack-stream');
 const webpackConfig = require('./webpack.config.js');
-const replace = require('gulp-string-replace');
-const jsdoc = require('gulp-jsdoc3');
-const sassdoc = require('sassdoc');
 const fileinclude = require('gulp-file-include');
 
 function defaultTask(cb) {
@@ -37,14 +32,8 @@ function copyAssets(){
 
 // Copy JS
 function copyJS() {
-    return src('src/script/**/*.js')
-        .pipe(dest('dist/script/'));
-}
-
-function replaceJSinHTML(){
-    return src('dist/*.html')
-        .pipe(replace('main.js', 'Main.js'))
-        .pipe(dest('dist/'));
+    return src('src/script/libraries/*.js')
+        .pipe(dest('dist/script/libraries/'));
 }
 
 // Build SASS
@@ -63,37 +52,6 @@ function buildJS() {
         .pipe(dest('dist/script/'));
 }
 
-const imgPath = 'src/assets/images/*.';
-// Convert images to WEBP
-function toWebP(){
-    return src(imgPath+'jpg', imgPath+'jpeg', imgPath+'png')
-        .pipe(webp())
-        .pipe(dest('src/assets/images/'));
-}
-
-function HTMLwebP(){
-    return src('src/*.html')
-        .pipe(replace('.jpeg', '.webp'))
-        .pipe(replace('.jpg', '.webp'))
-        .pipe(replace('.png', '.webp'))
-        .pipe(dest('src/'));
-}
-
-// Convert images to Avif
-function toAvif(){
-    return src(imgPath+'jpg', imgPath+'jpeg', imgPath+'png')
-        .pipe(avif())
-        .pipe(dest('src/assets/images/'));
-}
-
-function HTMLavif(){
-    return src('src/*.html')
-        .pipe(replace('.jpeg', '.avif'))
-        .pipe(replace('.jpg', '.avif'))
-        .pipe(replace('.png', '.avif'))
-        .pipe(dest('src/'));
-}
-
 // Start live-server server
 function serve(cb) {
     new fiveserver().start();
@@ -105,7 +63,8 @@ function watchFiles() {
     watch(['src/**/*.html'], templating);
     watch('src/style/**/*.scss', buildSass);
     watch('src/assets/**', copyAssets);
-    watch('src/script/**/*.js', buildJS);
+    watch(['src/script/**/*.js', '!src/script/libraries/*.js'], buildJS);
+    watch(['!src/script/libraries/*.js'], copyJS);
 }
 
 // post build
@@ -114,16 +73,6 @@ function postBuild(cb){
         .pipe(postcss())
         .pipe(dest('dist/style/'));
     cb();
-}
-
-function generateJSDocs(cb){
-    src(['README.md', './src/script/**/*.js'], {read: false})
-    .pipe(jsdoc(cb));
-}
-
-function generateSassDocs(){
-    return src('./src/style/**/*.scss')
-    .pipe(sassdoc());
 }
 
 function templating(){
@@ -135,9 +84,5 @@ function templating(){
     .pipe(dest('dist/'))
 }
 
-exports.default = series(clean, templating, copyAssets, buildSass, buildJS, parallel(watchFiles, serve));
-exports.build = series(clean, copyHTML, copyAssets, buildSass, buildJS, postBuild);
-exports.buildPurist = series(clean, copyHTML, copyJS, copyAssets, buildSass, replaceJSinHTML);
-exports.webpConvert = series(toWebP, HTMLwebP);
-exports.avifConvert = series(toAvif, HTMLavif);
-exports.docs = series(generateJSDocs, generateSassDocs);
+exports.default = series(clean, templating, copyAssets, buildSass, buildJS, copyJS, parallel(watchFiles, serve));
+exports.build = series(clean, copyHTML, copyAssets, buildSass, buildJS, copyJS, postBuild);

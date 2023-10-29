@@ -2,7 +2,7 @@
 Set a maximum width and center the content
 ================================================== */
 .container {
-    width: min(100% - var(--section-pad-inline), var(--max-width));
+    width: min(100% - var(--section-pad-block-xs) * 2, var(--max-width));
     margin-inline: auto;
     padding-block: var(--section-pad-block);
 

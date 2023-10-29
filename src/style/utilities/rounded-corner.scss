@@ -1,0 +1,13 @@
+/* ==================================================
+Styling sections and elements corner
+================================================== */
+
+.rounded-corner{
+    border-radius: var(--_radius, var(--corner-radius));
+}
+
+.circle{
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+}

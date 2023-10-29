@@ -5,12 +5,8 @@
   "main": "Main.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build",
-    "build:purist": "gulp buildPurist",
     "dev": "gulp",
-    "image:webp": "gulp webpConvert",
-    "image:avif": "gulp avifConvert",
-    "documentation": "gulp docs"
+    "build": "gulp build"
   },
   "author": "Legwarmer1481",
   "license": "ISC",

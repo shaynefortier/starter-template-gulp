@@ -13,6 +13,11 @@ a {
     }     
 }
 
+ul{
+    padding-left: var(--gutter);
+    list-style-type: square;
+}
+
 /* marker, highlight, selections */
 ::selection,
 mark {

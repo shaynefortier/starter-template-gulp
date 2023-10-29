@@ -1,0 +1,10 @@
+/* ==================================================
+Set up basic grid layout
+================================================== */
+
+.grid{
+    display: grid;
+    grid-template-columns: var(--_columns, repeat(auto-fit, minmax(var(--_min-width, 15rem), 1fr)));
+    gap: var(--gutter);
+    align-items: start;
+}

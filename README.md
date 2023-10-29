@@ -116,10 +116,11 @@ HTML
 
 ### Runtime and template versions to try
 
-- [x] Purist
-- [x] Gulp
-- [x] Vite
-- [ ] Astro
-- [ ] Qwik
-- [ ] WordPress Theme
-- [ ] DecapCMS Theme
+- [x] Gulp (En construction)
+- [ ] Node.js + Vite
+- [ ] Bun + Vite
+- [ ] Node.js + Astro
+- [ ] Bun + Astro
+- [ ] Node.js + Qwik
+- [ ] Bun + Qwik
+- [ ] Thème WordPress

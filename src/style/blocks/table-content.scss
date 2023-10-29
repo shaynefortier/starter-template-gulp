@@ -1,0 +1,20 @@
+/* ==================================================
+Styling Table of contents
+================================================== */
+
+.table-content{
+    list-style: none;
+    padding: 0;
+    font-size: var(--ft-small);
+
+    .sub-content{
+        list-style: inherit;
+    }
+
+    a{
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}

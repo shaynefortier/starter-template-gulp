@@ -1,0 +1,49 @@
+@@include('../layouts/_header.html', { 
+  "title": 'Documentation | LegwarmerStarter Theme', 
+"description": "A template to start making websites quickly" 
+})
+<div class="container | grid" style="--_columns: 2fr 1fr">
+  <main id="main-content">
+    <section class="flow">
+      <h1>Documentation</h1>
+      <p>
+        C'est un template qui permet de construire des sites web rapidement avec
+        des codes réutilisables JS et CSS, mais en laissant la flexibilité aux
+        développeurs front-end le plus possible. Je travaille ou je planifie de
+        travailler sur plusieurs versions, dont celui-ci est la version avec Gulp
+        qui compile le HTML, le CSS et JS en toute beauté.
+      </p>
+      <p>
+        Ici, vous pouvez configurer les valeurs du design system aux variables
+        contenus dans le fichier « settings.scss » affectant les espacements, les
+        palettes de couleurs et la typographie. Ça aide à garder l'uniformité de
+        design le plus possible.
+      </p>
+      <h2 id="installation">Installation</h2>
+      <p>Téléchargez le répertoire GitHub selon la version de votre choix. 
+        Les utilisateurs de GitHub peuvent créer un nouveau répertoire en 
+        cliquant sur le bouton « Use this template ».</p>
+      <ul>
+        <li><a href="https://github.com/shaynefortier/starter-template-gulp">Gulp</a></li>
+        <li>Vite</li>
+        <li>Astro</li>
+        <li>Qwik</li>
+      </ul>
+      <p>Ensuite, ouvrez le terminal (ou par l'intermédiaire de l'éditeur de texte 
+        comme VS Code) au dossier du projet. Écrivez dans le terminal 
+        cette commande : </p>
+      <p>Avec NPM :</p>
+      <pre class="language-bash"><code class="language-bash">$ npm i</code></pre>
+      <h2 id="commencer-la-conception">Commencer la conception</h2>
+      <p>Avec NPM :</p>
+      <pre class="language-bash"><code class="language-bash">$ npm start
+  //ou
+  $ npm run dev</code></pre>
+      <h2 id="compiler-le-site-web">Compiler le site web</h2>
+      <p>Avec NPM :</p>
+      <pre class="language-bash"><code class="language-bash">$ npm run build</code></pre>
+    </section>
+  </main>
+  @@include('../layouts/_docs-sidebar.html')
+</div>
+@@include('../layouts/_footer.html')
