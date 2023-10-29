@@ -8,15 +8,9 @@ a {
     color: var(--color-accent);
     
     &:hover,
-    &:focus {
+    &:focus-visible  {
         color: var(--color-accent-hover);
-    }
-}
-
-/* text */
-p {
-    font-size: var(--ft-medium);
-    line-height: 1.6em;
+    }     
 }
 
 /* marker, highlight, selections */
@@ -26,19 +20,7 @@ mark {
     color: var(--color-background);
 }
 
-/* lists */
-
-ul,
-ol {
-    padding-inline-start: calc(var(--section-pad-inline) + var(--gap-small));
-}
-
 /* other */
 abbr {
     cursor: help;
-}
-figure {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
 }

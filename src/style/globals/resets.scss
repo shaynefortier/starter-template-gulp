@@ -1,3 +1,11 @@
+/* ==================================================
+Add CSS rules to reset the default parameters to ensure
+consistency between browsers and make CSS settings less
+frustrating.
+
+You don't need to change anything on the file unless
+you set up your own reset preferences.
+================================================== */
 *,
 *::before,
 *::after {
@@ -10,14 +18,22 @@
     font: inherit;
 }
 
+:focus-visible{
+    outline-width: var(--_thikness, 2px);
+    outline-style: var(--_outline-style, solid);
+    outline-color: var(--color-accent-hover);
+    outline-offset: var(--_offset, 2px);
+}
+
 html {
     color-scheme: dark light;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
     font-family: var(--ft-primary);
-    font-size: var(--ft-medium);
+    font-size: var(--ft-normal);
     background-color: var(--color-background);
     color: var(--color-text);
     overflow-x: hidden;

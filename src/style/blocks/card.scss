@@ -1,46 +1,53 @@
-/* Card
---color: color value
---card-hsl-color: hsl color value without the hsl()
---opacity: float number from 0 to 1
---card-padding-y: number value
---card-padding-x: number value
---card-hz-direction: flex-direction value
-*/
-.card {
-    background-color: hsl(
-        var(--card-hsl-color, var(--hsl-secondary)) / var(--opacity, 1)
-    );
-    border-radius: var(--radius, var(--corner-radius));
-    overflow: clip;
+/* ==================================================
+Styling cards
+================================================== */
+$card-width: 320px;
 
-    &__content {
-        padding: var(--card-padding-y, var(--section-pad-inline))
-            var(--card-padding-x, var(--section-pad-block-small));
-        color: var(--color, var(--color-text));
-    }
+.cards{
+    --_media-height: 200px;
 
-    &__media {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
+    grid-auto-rows: var(--_media-height) auto auto auto;
+    column-gap: var(--_gap, var(--gutter));
+    container-type: inline-size;
+}
 
-    &[data-direction="horizontal"]{
-        /* --card-direction: row; */
-        display: flex;
-        flex-direction: var(--card-hz-direction, row);
-        flex-wrap: wrap;
+.card{
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    border-radius: var(--corner-radius);
+    overflow: hidden;
+    margin-bottom: var(--_gap, var(--gutter));
 
-        & .card__media{
-            flex-grow: 1;
-            flex-basis: 16rem;
+    .media img{
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-        }
-        
-        & .card__content{
-            flex-grow: 9999;
-            flex-basis: 50%;
-            align-self: center;
+    }
+
+    .content{
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 3;
+        justify-items: start;
+        align-items: start;
+        padding: var(--_pad-y, var(--gutter-sm)) var(--_pad-x, var(--gutter-sm));
+    }
+
+    @container ( width > #{$card-width * 2} ) {
+        &[data-size="wide"], &[data-size="extra-wide"]{
+            grid-column: span 2;
         }
     }
+
+    @container ( width > #{$card-width * 3} ) {
+        &[data-size="extra-wide"]{
+            grid-column: span 3;
+        }
+    }
+    
 }

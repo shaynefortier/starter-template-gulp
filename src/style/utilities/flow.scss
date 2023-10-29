@@ -1,6 +1,7 @@
-/* flow
-	--flow-spacer: number (em|rem|px|...)
-*/
+/* ==================================================
+Flow
+Set the spacing to the text elements based on their size
+================================================== */
 .flow > * + * {
-    margin-block-start: var(--flow-spacer, 1em);
+    margin-block-start: var(--_spacer, 1em);
 }

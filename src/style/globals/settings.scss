@@ -1,110 +1,160 @@
+/* ==================================================
+Here is the settings section that you configure based
+on the design system that was provided such as the 
+color palette, the spacing and the typography.
+
+You can change any variable value you want.
+================================================== */
+
+// Set your color palette here in hsl format
+// Colors for the light theme (your default)
+$light-clr-hsl: (
+"text": 192 100% 10%,
+"background": 192 63% 97%,
+"primary": 192 65% 72%,
+"secondary": 193 66% 93%,
+"accent": 192 66% 23%);
+
+// Does the site has dark mode?
+$dark-mode: true;
+
+// Colors for the dark mode
+$dark-clr-hsl: ("text": 192 63% 97%,
+"background": 192 100% 10%,
+"primary": 192 65% 72%,
+"secondary": 193 64% 13%,
+"accent": 192 65% 53%);
+
+// Colors for hovers
+$clr-mix-strength: 10%;
+
+$light-clr-mix: ("text": #000,
+"background": #000,
+"primary": #000,
+"secondary": #000,
+"accent": #000);
+
+$dark-clr-mix: ("text": #fff,
+"background": #fff,
+"primary": #000,
+"secondary": #fff,
+"accent": #fff);
+
+// Font families
+$headings: Handlee, sans-serif;
+$text: Kanit, system-ui, sans-serif;
+
+// Font sizes
+// Set up fluid typography for responsive texts through the website
+// @link https://utopia.fyi/type/calculator
+$font-sizes: (
+    "small": clamp(0.9rem, 0.8569rem + 0.2153vw, 1rem),
+    "normal": clamp(1.125rem, 0.9635rem + 0.8075vw, 1.5rem),
+    "medium": clamp(1.4063rem, 1.0429rem + 1.817vw, 2.25rem),
+    "large": clamp(1.7581rem, 1.0618rem + 3.4818vw, 3.375rem),
+    "xlarge": clamp(2.1975rem, 0.9636rem + 6.1696vw, 5.0625rem)
+);
+
+// Sometimes, you want the typo to stay the same
+$font-sizes-fixed: (
+    "small": 0.9375rem,
+    "normal": 1.125rem,
+    "medium": 1.35rem,
+    "large": 1.62rem,
+    "xlarge": 1.9438rem
+);
+
+// Spacing
+// Set up the gutter for grid and flex gap on @link https://utopia.fyi/grid/calculator
+$gutter: clamp(1.125rem, 0.7487rem + 1.8817vw, 2rem);
+
+$max-width: 66.38rem;
+$container-inline-padding: clamp(1rem, 0.677rem + 1.6151vw, 1.75rem);
+
+$section-padding-block: clamp(1.625rem, -1.439rem + 13.0732vw, 10rem);
+$section-padding-block-sm: clamp(0.8125rem, -0.7195rem + 6.5366vw, 5rem);
+$section-padding-block-xs: clamp(0.4375rem, -0.3171rem + 3.2195vw, 2.5rem);
+
+// Miscellaneous
+$corner-radius: 0.2em;
+
+// Color background and text contrast pairing
+$color-name: ("text": "background", 
+"background": "text", 
+"primary": "text", 
+"secondary": "text", 
+"accent": "background");
+
+$color-name-dark: ("text": "background", 
+"background": "text", 
+"primary": "background", 
+"secondary": "text", 
+"accent": "background");
+
+// Don't edit the code below
 :root {
-    /* COLORS */
-    --color-dark: #000;
-    --color-light: #fff;
+    @each $name, $color in $light-clr-hsl {
+        --hsl-#{$name}: #{$color};
+        --color-#{$name}: hsl(#{$color});
+    }
 
-    --hsl-text: 192 100% 10%;
-    --hsl-background: 192 63% 97%;
-    --hsl-primary: 192 65% 72%;
-    --hsl-secondary: 193 66% 93%;
-    --hsl-accent: 192 66% 23%;
+    --clr-hover-strength: #{$clr-mix-strength};
 
-    --color-text: hsl(var(--hsl-text));
-    --color-background: hsl(var(--hsl-background));
-    --color-primary: hsl(var(--hsl-primary));
-    --color-secondary: hsl(var(--hsl-secondary));
-    --color-accent: hsl(var(--hsl-accent));
+    @each $name, $color in $light-clr-mix {
+        --color-#{$name}-hover: color-mix(
+            in oklab,
+            #{$color} var(--clr-hover-strength),
+            var(--color-#{$name})
+        );
+    }
 
-    --clr-percent: 50%;
-    --color-text-hover: color-mix(
-        in oklab,
-        var(--color-text) var(--clr-percent),
-        #000
-    );
-    --color-background-hover: color-mix(
-        in oklab,
-        var(--color-background) var(--clr-percent),
-        #000
-    );
-    --color-primary-hover: color-mix(
-        in oklab,
-        var(--color-primary) var(--clr-percent),
-        #000
-    );
-    --color-secondary-hover: color-mix(
-        in oklab,
-        var(--color-secondary) var(--clr-percent),
-        #000
-    );
-    --color-accent-hover: color-mix(
-        in oklab,
-        var(--color-accent) var(--clr-percent),
-        #000
-    );
+    @each $name, $size in $font-sizes{
+        --ft-#{$name}: #{$size};
+    }
 
-    /* FONTS */
-    --ft-xxlarge: 4rem;
-    --ft-xlarge: 3rem;
-    --ft-large: 2rem;
-    --ft-medium: 1rem;
-    --ft-small: 0.8rem;
+    @each $name, $size in $font-sizes-fixed{
+        --ft-fixed-#{$name}: #{$size};
+    }
 
-    --ft-primary: Kanit, system-ui, sans-serif; /* Text */
-    --ft-heading: Handlee, sans-serif; /* Headings */
+    --ft-primary: #{$text};
+    --ft-heading: #{$headings};
 
-    /* DIMENSIONS */
-    --gap-xl: 3rem;
-    --gap-large: 1.5rem;
-    --gap-med: 1rem;
-    --gap-small: 0.5rem;
+    --max-width: #{$max-width};
 
-    --section-pad-block: 2rem;
-    --section-pad-block-small: 1rem;
-    --section-pad-inline: 1rem;
+    --gutter: #{$gutter};
+    --gutter-sm: calc(var(--gutter) / 2);
+    --gutter-xs: calc(var(--gutter) / 4);
 
-    --max-width: 65.125rem;
+    --section-pad-block: #{$section-padding-block};
+    --section-pad-block-sm: #{$section-padding-block-sm};
+    --section-pad-block-xs: #{$section-padding-block-xs};
+    --section-pad-inline: #{$container-inline-padding};
 
     /* forms */
-    --corner-radius: 0.2em;
+    --corner-radius: #{$corner-radius};
 
-        /* Swiper Overrides */
-        --swiper-theme-color: var(--color-primary);
-        --swiper-pagination-bullet-size: 1rem;
-        --swiper-pagination-color: var(--color-accent);
+    /* Swiper Overrides */
+    --swiper-theme-color: var(--color-primary);
+    --swiper-pagination-bullet-size: 1rem;
+    --swiper-pagination-color: var(--color-accent);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --hsl-text: 192 63% 97%;
-        --hsl-background: 192 100% 10%;
-        --hsl-primary: 192 65% 72%;
-        --hsl-secondary: 193 64% 13%;
-        --hsl-accent: 192 65% 53%;
-
-        --color-text-hover: color-mix(
-            in oklab,
-            var(--color-text) var(--clr-percent),
-            #fff
-        );
-        --color-background-hover: color-mix(
-            in oklab,
-            var(--color-background) var(--clr-percent),
-            #fff
-        );
-        --color-primary-hover: color-mix(
-            in oklab,
-            var(--color-primary) var(--clr-percent),
-            #fff
-        );
-        --color-secondary-hover: color-mix(
-            in oklab,
-            var(--color-secondary) var(--clr-percent),
-            #fff
-        );
-        --color-accent-hover: color-mix(
-            in oklab,
-            var(--color-accent) var(--clr-percent),
-            #fff
-        );
+@if $dark-mode{
+    @media (prefers-color-scheme: dark) {
+        :root {
+    
+            @each $name, $color in $dark-clr-hsl {
+                --hsl-#{$name}: #{$color};
+                --color-#{$name}: hsl(#{$color});
+            }
+    
+            @each $name, $color in $dark-clr-mix {
+                --color-#{$name}-hover: color-mix(
+                    in oklab,
+                    #{$color} var(--clr-hover-strength),
+                    var(--color-#{$name})
+                );
+            }
+        }
     }
 }

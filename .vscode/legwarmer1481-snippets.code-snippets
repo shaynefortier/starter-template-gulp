@@ -29,7 +29,7 @@
 			"    */",
 			"    constructor(element){",
 			"        this.element = element;",
-			"",
+			"        $0",
 			"        this.init();",
 			"    }",
 			"    init(){",
@@ -45,13 +45,35 @@
 		"prefix": "leg-cards",
 		"body": [
 			"<div class=\"cards\">",
-			"    <div class=\"card\">",
-			"        <img src=\"$1\" alt=\"$2\" class=\"card__media\">",
-			"        <div class=\"flow | card__content\">",
-			"            $3",
+			"    <article class=\"card\">",
+			"        <a href=\"$5\" class=\"media\">",
+			"            <img src=\"$1\" alt=\"$2\" />",
+			"        </a>",
+			"        <div class=\"flow | content\">",
+			"            <h3 class=\"title\">$3</h3>",
+			"            <div class=\"description\">$4</div>",
+			"            <a href=\"$5\" class=\"btn\">Voir plus</a>",
 			"        </div>",
-			"    </div>",
+			"    </article>",
+			"    $0",
 			"</div>"
+		],
+		"description": "Build a card layout"
+	},
+	"HTML card" :{
+		"scope": "html",
+		"prefix": "leg-single-card",
+		"body": [
+			"<article class=\"card\">",
+			"    <a href=\"$5\" class=\"media\">",
+			"        <img src=\"$1\" alt=\"$2\" />",
+			"    </a>",
+			"    <div class=\"flow | content\">",
+			"        <h3 class=\"title\">$3</h3>",
+			"        <div class=\"description\">$4</div>",
+			"        <a href=\"$5\" class=\"btn\">Voir plus</a>",
+			"    </div>",
+			"</article>"
 		],
 		"description": "Build a card layout"
 	},
@@ -62,7 +84,7 @@
 			"<div class=\"swiper\" data-component=\"Carousel\" >",
 			"    <div class=\"swiper-wrapper\">",
 			"        <div class=\"swiper-slide\">",
-			"            ",
+			"            $0",
 			"        </div>",
 			"    </div>",
 			"    <div class=\"swiper-pagination\"></div>",
@@ -75,7 +97,16 @@
 	"HTML Carousel slide":{
 		"scope": "html",
 		"prefix": "leg-carousel-slide",
-		"body": "<div class=\"swiper-slide\"></div>",
+		"body": "<div class=\"swiper-slide\">$0</div>",
 		"description": "Add a slide in the carousel"
 	},
+	"Document SCSS/CSS":{
+		"scope": ["css", "scss", "sass"],
+		"prefix": "leg-css-doc",
+		"body": [
+			"/* ==================================================",
+			"$0",
+			"================================================== */"
+		],
+	}
 }

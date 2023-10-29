@@ -3,7 +3,7 @@ import { Navigation, Pagination, Keyboard, Autoplay, EffectFade, EffectCube, Eff
 // import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs';
 
 /** Carousel class to instanciate a carousel through Swiper */
-class Carousel {
+export default class Carousel {
     /**
      * Using the SwiperJS library, it renders a carousel to the HTML element
      * @param {HTMLElement} element - HTML element associated to data-component="Carousel"
@@ -122,4 +122,3 @@ class Carousel {
         }
     }
 }
-export default Carousel;

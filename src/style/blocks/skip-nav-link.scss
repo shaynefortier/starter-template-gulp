@@ -1,7 +1,10 @@
 .skip-nav-link{
     background-color: var(--color-text);
     padding: 0.6rem 0.8rem;
+    text-decoration: none;
+    border-radius: var(--corner-radius);
     position: absolute;
+    z-index: 20;
     left: 1rem;
     transform: translateY(-120%);
     transition: transform 250ms ease;

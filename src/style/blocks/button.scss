@@ -1,58 +1,61 @@
-/* buttons
-	--pad-y: number value
-	--pad-x: number value
-	--radius: number value
-	--color-link: color properties
-	--color-link-dark: color properties
-*/
-.btn{
-    /* --pad-y: ; */
-    /* --pad-x: ; */
-    /* --radius: ; */
-    /* --color-link: ; */
-    /* --color-link-dark: ; */
-
+@use 'sass:map';
+@use '../globals/settings';
+/* ==================================================
+The style for buttons
+================================================== */
+.btn, button{
     display: inline-block;
-    padding: var(--pad-y, var(--gap-small)) var(--pad-x, var(--gap-med));
-    border-radius: var(--radius, var(--corner-radius));
+    padding: var(--_pad-y, 0.25em) var(--_pad-x, 0.5em);
+    border-radius: var(--_radius, var(--corner-radius));
+    font-weight: 700;
     text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 250ms ease-out;
     border: none;
+    background-color: var(--_color-btn, var(--color-primary));
+    color: var(--_color-link, var(--color-#{map.get(settings.$color-name, "primary")}));
+        
+    &:hover,
+    &:focus-visible {
+        background-color: var(--_color-btn-hover, var(--color-primary-hover));
+        color: var(--_color-link-hover, var(--color-#{map.get(settings.$color-name, "primary")}-hover));
+    }
 
-    &-primary {
-        background-color: var(--color-primary);
-        color: var(--color-link, var(--color-dark));
-    }
-    &-primary:hover,
-    &-primary:focus {
-        background-color: var(--color-primary-hover);
-        color: var(--color-link, var(--color-light));
-    }
-    &-secondary {
-        background-color: var(--color-secondary);
-        color: var(--color-link, var(--color-dark));
-    }
-    &-secondary:hover,
-    &-secondary :focus {
-        background-color: var(--color-secondary-hover);
-        color: var(--color-link, var(--color-light));
-    }
-    @media (prefers-color-scheme: dark) {
-        &-primary {
-            color: var(--color-link-dark, var(--color-dark));
+    @each $bg-color, $color in settings.$color-name{
+        &[data-type="#{$bg-color}"]{
+            background-color: var(--color-#{$bg-color});
+            color: var(--color-#{$color});
+
+            &:hover, &:focus-visible{
+                background-color: var(--color-#{$bg-color}-hover);
+                color: var(--color-#{$color}-hover);
+            }
         }
-        &-primary:hover,
-        &-primary:focus {
-            color: var(--color-link-dark, var(--color-dark));
-        }
-        &-secondary {
-            color: var(--color-link-dark, var(--color-light));
-        }
-        &-secondary:hover,
-        &-secondary :focus {
-            color: var(--color-link-dark, var(--color-dark));
+    }
+
+    @if settings.$dark-mode{
+        @media (prefers-color-scheme: dark) {
+    
+            background-color: var(--color-primary);
+            color: var(--color-#{map.get(settings.$color-name-dark, "primary")});
+            &:hover,
+            &:focus-visible {
+                background-color: var(--color-primary-hover);
+                color: var(--color-#{map.get(settings.$color-name-dark, "primary")}-hover);
+            }
+    
+            @each $bg-color, $color in settings.$color-name-dark{
+                &[data-type="#{$bg-color}"]{
+                    background-color: var(--color-#{$bg-color});
+                    color: var(--color-#{$color});
+        
+                    &:hover, &:focus-visible{
+                        background-color: var(--color-#{$bg-color}-hover);
+                        color: var(--color-#{$color}-hover);
+                    }
+                }
+            }
         }
     }
 }

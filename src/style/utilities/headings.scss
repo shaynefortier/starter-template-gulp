@@ -1,34 +1,25 @@
-/// Headings
-/// 
-/// --fw: font-weight values
-/// 
-/// --lh: number value [ em | rem | px | ... ]
-/// 
-/// @group Headings
-.h1,
-h1 {
-    font-family: var(--font-family, var(--ft-heading));
-    font-size: var(--ft-xxlarge);
-    font-weight: var(--fw, 900);
-    line-height: var(--lh, 1em);
+/* ==================================================
+Headings
+
+The headings have some default behaviour. When you want
+to change the size for a heading, use the
+corresponding class.
+================================================== */
+h1, h2, h3, h4, h5, h6{
+    line-height: 1.1;
+    font-weight: 700;
 }
-/// @group Headings
-.h2,
-h2 {
+
+h1, .h1{
     font-size: var(--ft-xlarge);
-    font-weight: var(--fw, 800);
-    line-height: var(--lh, 1.2em);
+    font-family: var(--ft-heading);
 }
-/// @group Headings
-.h3,
-h3 {
+h2, .h2{
     font-size: var(--ft-large);
-    font-weight: var(--fw, 700);
-    line-height: var(--lh, 1.3em);
 }
-/// @group Headings
-.h4,
-h4 {
+h3, .h3{
     font-size: var(--ft-medium);
-    font-weight: var(--fw, 600);
+}
+h4, .h4, h5, h6{
+    font-size: var(--ft-normal);
 }

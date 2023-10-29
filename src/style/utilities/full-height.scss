@@ -1,9 +1,0 @@
-/* full-height */
-.full-height {
-    display: grid;
-    grid-template-rows: min-content auto min-content;
-    min-height: 100lvh;
-}
-.single-projet .full-height {
-    display: block;
-}

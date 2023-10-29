@@ -11,6 +11,7 @@ const webpackConfig = require('./webpack.config.js');
 const replace = require('gulp-string-replace');
 const jsdoc = require('gulp-jsdoc3');
 const sassdoc = require('sassdoc');
+const fileinclude = require('gulp-file-include');
 
 function defaultTask(cb) {
     // place code for your default task here
@@ -24,7 +25,7 @@ function clean(cb) {
 
 // Copy HTML files
 function copyHTML(){
-    return src('src/*.html')
+    return src(['src/**/*.html', '!src/layouts/**/*.html'])
         .pipe(dest('dist/'));
 }
 
@@ -101,7 +102,7 @@ function serve(cb) {
 
 // Watch files
 function watchFiles() {
-    watch('src/*.html', copyHTML);
+    watch(['src/**/*.html'], templating);
     watch('src/style/**/*.scss', buildSass);
     watch('src/assets/**', copyAssets);
     watch('src/script/**/*.js', buildJS);
@@ -125,7 +126,16 @@ function generateSassDocs(){
     .pipe(sassdoc());
 }
 
-exports.default = series(clean, copyHTML, copyAssets, buildSass, buildJS, parallel(watchFiles, serve));
+function templating(){
+    return src(['src/**/*.html', '!src/layouts/**/*.html'])
+    .pipe(fileinclude({
+        prefix: '@@',
+        basepath: '@file'
+    }))
+    .pipe(dest('dist/'))
+}
+
+exports.default = series(clean, templating, copyAssets, buildSass, buildJS, parallel(watchFiles, serve));
 exports.build = series(clean, copyHTML, copyAssets, buildSass, buildJS, postBuild);
 exports.buildPurist = series(clean, copyHTML, copyJS, copyAssets, buildSass, replaceJSinHTML);
 exports.webpConvert = series(toWebP, HTMLwebP);

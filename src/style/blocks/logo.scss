@@ -1,29 +1,23 @@
-/* logo
-	--logo-gap: number value (em | rem | px | ...)
-	--height: number value
-	--width: number value
-	--ft-size: number value
-*/
-.logo {
-    /* --logo-gap: ; */
-    /* --height: ; */
-    /* --width: ; */
-    --ft-size: 1.5rem;
+/* ==================================================
+Styling the logo that has an icon/image on the left
+and a text on the right
+================================================== */
 
+.logo {
     display: flex;
     align-items: center;
-    gap: var(--logo-gap, var(--gap-small));
+    gap: var(--_logo-spacer, var(--gutter-xs));
     text-decoration: none;
     
-    svg {
-        height: var(--height, 4rem);
-        min-height: var(--height, 4rem);
-        max-height: var(--height, 4rem);
-        width: var(--width, 4rem);
-        min-width: var(--width, 4rem);
-        max-width: var(--width, 4rem);
+    svg, img {
+        height: var(--_height, 4rem);
+        min-height: var(--_height, 4rem);
+        max-height: var(--_height, 4rem);
+        width: var(--_width, 4rem);
+        min-width: var(--_width, 4rem);
+        max-width: var(--_width, 4rem);
     }
     span {
-        font-size: var(--ft-size, var(--ft-large));
+        font-size: var(--_ft-size, var(--ft-medium));
     }
 }

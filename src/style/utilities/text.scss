@@ -1,0 +1,29 @@
+/* ==================================================
+Every class for styling text related elements
+================================================== */
+
+$text-aligns: left, right, center, justify;
+$text-transforms: none, capitalize, uppercase, lowercase, unset;
+
+@each $param in $text-aligns{
+    .txt-#{$param}{
+        text-align: $param;
+    }
+}
+
+@each $param in $text-transforms{
+    .txt-#{$param}{
+        text-transform: $param;
+    }
+}
+
+.txt-indent{
+    text-indent: var(--_indent, 1.5em);
+}
+
+.txt-preview{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--_line, 4);
+    overflow: hidden;
+}

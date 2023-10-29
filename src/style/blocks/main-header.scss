@@ -1,0 +1,96 @@
+/* ==================================================
+Main header component
+================================================== */
+
+$breakpoints: 60em;
+
+.main-header{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: var(--gutter);
+    width: min(100% - var(--section-pad-inline), var(--max-width));
+    margin-inline: auto;
+    padding-block: var(--section-pad-block-xs);
+
+    .navigation {
+        ul{
+            display: flex;
+            gap: var(--gutter-sm);
+            align-items: center;
+            list-style: none;
+
+            .link a{
+                text-decoration: none;
+            }
+        }
+    }
+
+    .nav-toggle{
+        display: none;
+        background-color: transparent;
+        padding: 0;
+        
+        svg{
+            fill: var(--color-primary);
+            width: 4rem;
+            min-width: 4rem;
+            height: 4rem;
+            min-height: 4rem;
+        }
+
+        .top, .bottom{
+            transition: transform 250ms linear;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+        .middle{
+            transition: opacity 250ms linear;
+        }
+
+    }
+
+    @media ( width < #{$breakpoints} ){
+        align-items: flex-start;
+        
+        .navigation {
+            display: grid;
+            grid-template-rows: 0fr;
+            position: absolute;
+            top: calc(100% - var(--section-pad-block-xs));
+            right: calc(var( --section-pad-inline) * -1 );
+            left: calc(var( --section-pad-inline) * -1 );
+            padding: 0 var(--section-pad-inline);
+            z-index: 10;
+            transition: all 250ms ease-out;
+            overflow: hidden;
+            
+            ul{
+                flex-direction: column;
+                align-items: flex-start;
+                overflow: hidden;
+            }
+        }
+        
+        .nav-toggle{
+            display: block;
+        }
+        
+        .active &{
+            .navigation{
+                grid-template-rows: 1fr;
+                padding: var(--section-pad-block-xs) var(--section-pad-inline);
+            }
+            .top{
+                transform: translateY(225%) rotateZ(45deg);
+            }
+            .middle{
+                opacity: 0;
+            }
+            .bottom{
+                transform: translateY(-225%) rotateZ(-45deg);
+            }
+        }
+    }
+}

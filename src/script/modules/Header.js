@@ -1,5 +1,5 @@
 /** Class representing the Header */
-class Header {
+export default class Header {
   /**
    * It dynamize the Header for toggling the menu button on mobile
    * @param {HTMLElement} element - The element to link to this class, in this case the Site Navbar/Header
@@ -28,5 +28,3 @@ class Header {
     this.element.classList.toggle('active');
   }
 }
-
-export default Header;

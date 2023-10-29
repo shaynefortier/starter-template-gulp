@@ -1,51 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Shayne's Starter Theme</title>
-		<meta name="description" content="A demo for making a website through this starter theme">
-		<link rel="shortcut icon" href="assets/images/logo.svg" type="image/svg+xml">
-		<link rel="stylesheet" href="style/main.css" />
-		<script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
-		<script src="script/main.js" defer></script>
-	</head>
-	<body>
-		<header class="clr-secondary" data-component="Header">
-			<a class="skip-nav-link" href="#main-content">Passer la navigation</a>
-			<div class="container container--small space-btw">
-				<a class="logo" href="/">
-					<svg data-v-fde0c5aa="" version="1.1" viewBox="0 0 25.888 27.391" xmlns="http://www.w3.org/2000/svg">
-						<g id="b" transform="matrix(.34349 0 0 .34349 -4.1851 -3.0764)" style="fill:var(--color-primary)" data-v-fde0c5aa="">
-							<path d="m38.2 88.7c-2.3 0-4.7-0.4-7-1.1-8.5-2.7-14.4-10-15.3-18.9l-3.6-35.3c-0.7-6.9 1.8-13.5 6.8-18.3s11.8-6.9 18.6-5.9l30.9 4.6c8.2 1.2 14.8 6.6 17.6 14.4s1.2 16.1-4.3 22.3l-27.2 30.7c-4.4 4.9-10.3 7.5-16.5 7.5zm-3.8-74.8c-4.4 0-8.6 1.7-11.8 4.8-3.9 3.7-5.8 8.9-5.2 14.2l3.6 35.3c0.7 6.9 5.2 12.5 11.8 14.6s13.6 0.2 18.2-5l27.3-30.7c4.3-4.8 5.5-11.3 3.3-17.3s-7.3-10.2-13.6-11.1l-31-4.6c-0.9-0.1-1.7-0.2-2.6-0.2z" style="fill:var(--color-primary)"/>
-						</g>
-					</svg>
-					<span class="ft-heading">Shayne's Starter Theme</span>
-				</a>
-				<button class="main-nav-toggle js-toggle">
-					<svg width="24" height="24" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-						<g transform="matrix(.79591 0 0 .79591 1.0501 4.6798)" style="fill:var(--color-text)">
-							<rect class="top" width="27.512" height="3.3305" ry="1.6653"/>
-							<rect class="middle" x=".0030403" y="7.4616" width="27.512" height="3.3305" ry="1.6653"/>
-							<rect class="bottom" x=".0030403" y="15.064" width="27.512" height="3.3305" ry="1.6653"/>
-						</g>
-					</svg>
-				</button>
-				<nav class="main-nav js-menu">
-					<ul>
-						<li class="main-nav__link"><a href="#">Démos</a></li>
-						<li class="main-nav__link"><a href="#">Documentations</a></li>
-						<li class="main-nav__link"><a href="#">À propos</a></li>
-						<li><a class="btn btn-primary" href="#">Télécharger sur Github</a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
+@@include('layouts/_header.html', {
+	"title": 'Legwarmer Starter Theme',
+	"description": "A template to start making websites quickly"
+})
 		<main id="main-content">
 			<!-- HERO -->
-			<section class="img-stack" style="--color: #fff; --min-height: 25rem">
-				<div class="img-stack__media">
+			<section class="img-stack" style="--_color: #fff; --_height: 25rem">
+				<div class="media">
 					<img 
 						srcset="assets/images/hero-1920w.webp 1920w,
 						assets/images/hero-1280w.webp 1280w,
@@ -54,157 +14,115 @@
 						alt="Photo de montagnes" 
 					>
 				</div>
-				<div class="container txt-center | img-stack__content">
+				<div class="content">
 					<h1>Demo avec Gulp</h1>
 				</div>
 			</section>
-			<section class="container flow">
-				<h2>Pour commencer</h2>
-				<p>J'ai fait ce template dans l'objectif de commencer un sites
-					web avec mes classes CSS de bases et de réduire le temps de à produire un site web. 
-					Je planifi de faire une version avec SASS et peut-être en faire un thème WordPress.
-					Ce template vise à maximiser la performance du site et que les configs de base comme 
-					l'accessibilité, le <abbr title="Progressive Web App">PWA</abbr> et les libraries 
-					<abbr title="JavaScript">JS</abbr> en toute simplicité.
-				</p>
-				<h2>Les cartes</h2>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque magnam eaque repellat obcaecati facilis veniam nesciunt rem in beatae.</p>
-				<div class="grid">
-					<div class="card">
-						<img src="https://picsum.photos/300/250" alt="random image" class="card__media">
-						<div class="flow | card__content">
-							<h3>Carte par défaut 1</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, minus? Cum soluta repellat dignissimos quidem, ipsum illo, quam voluptates minima reprehenderit perferendis optio, doloribus asperiores impedit expedita fugiat voluptatum deleniti!</p>
-							<a href="#" class="btn btn-primary">En savoir plus</a>
-						</div>
-					</div>
-					<div class="card">
-						<img src="https://picsum.photos/300/250" alt="random image" class="card__media">
-						<div class="flow | card__content">
-							<h3>Carte par défaut 2</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, minus? Cum soluta repellat dignissimos quidem, ipsum illo, quam voluptates minima reprehenderit perferendis optio, doloribus asperiores impedit expedita fugiat voluptatum deleniti!</p>
-							<a href="#" class="btn btn-primary">En savoir plus</a>
-						</div>
-					</div>
-					<div class="card" data-direction="horizontal">
-						<img src="https://picsum.photos/300/250" alt="random image" class="card__media">
-						<div class="flow | card__content">
-							<h3>Carte horizontale</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, minus? Cum soluta repellat dignissimos quidem, ipsum illo, quam voluptates minima reprehenderit perferendis optio, doloribus asperiores impedit expedita fugiat voluptatum deleniti!</p>
-							<a href="#" class="btn btn-primary">En savoir plus</a>
-						</div>
-					</div>
-					<div class="card" data-direction="horizontal" style="--card-hz-direction: row-reverse">
-						<img src="https://picsum.photos/300/250" alt="random image" class="card__media">
-						<div class="flow | card__content">
-							<h3>Carte horizontale inversée</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, minus? Cum soluta repellat dignissimos quidem, ipsum illo, quam voluptates minima reprehenderit perferendis optio, doloribus asperiores impedit expedita fugiat voluptatum deleniti!</p>
-							<a href="#" class="btn btn-primary">En savoir plus</a>
-						</div>
-					</div>
+			<section >
+				<div class="container flow">
+					<h2>Pour commencer</h2>
+					<p>J'ai fait ce template dans l'objectif de commencer un sites
+						web avec mes classes CSS de bases et de réduire le temps de à produire un site web. 
+						Ce template vise à maximiser la performance du site et que les configs de base comme 
+						l'accessibilité, le <abbr title="Progressive Web App">PWA</abbr> et les libraries 
+						<abbr title="JavaScript">JS</abbr> en toute simplicité.
+					</p>
+					<p>Allez voir la <a href="documentations/">documentation</a> pour apprendre comment l'utiliser.</p>
 				</div>
 			</section>
-			<section class="container flow">
-				<h2>Carousel</h2>
-				<h3>Défaut</h3>
-				<div class="swiper" data-component="Carousel">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=1" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=2" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=3" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=4" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=5" alt="random image">
-						</div>
+			<section class="bg-clr-primary">
+				<div class="container flow">
+					<h2>Démo carte</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+						Omnis illum modi magni odit, ratione error dolor asperiores 
+						excepturi necessitatibus aspernatur quo possimus commodi dolorem 
+						mollitia? Nisi libero distinctio eveniet aperiam.</p>
+					<div class="cards">
+						<article class="card" data-size="wide">
+							<a href="#" class="media">
+								<img src="https://picsum.photos/320/200" alt="aleatoire">
+							</a>
+							<div class="flow | content">
+								<h3 class="title">Carte 1 large</h3>
+								<div class="description">
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+										Debitis accusamus animi, molestiae officiis at modi 
+										tenetur.</p>
+								</div>
+								<a href="#" class="btn">Voir plus</a>
+							</div>
+						</article>
+						<article class="card">
+							<a href="#" class="media">
+								<img src="https://picsum.photos/320/180" alt="aleatoire">
+							</a>
+							<div class="flow | content">
+								<h3 class="title">Carte 2</h3>
+								<div class="description">
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+								</div>
+								<a href="#" class="btn">Voir plus</a>
+							</div>
+						</article>
+						<article class="card">
+							<a href="#" class="media">
+								<img src="https://picsum.photos/320/200" alt="aleatoire" />
+							</a>
+							<div class="flow | content">
+								<h3 class="title">Carte 3</h3>
+								<div class="description">
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+										Libero illum rerum, ducimus amet deserunt voluptatum.</p>
+								</div>
+								<a href="#" class="btn">Voir plus</a>
+							</div>
+						</article>
+						<article class="card">
+							<a href="#" class="media">
+								<img src="https://picsum.photos/320/200" alt="aleatoire" />
+							</a>
+							<div class="flow | content">
+								<h3 class="title">Carte 4</h3>
+								<div class="description">
+									<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+										Officia, quasi expedita.</p>
+								</div>
+								<a href="#" class="btn">Voir plus</a>
+							</div>
+						</article>
+						<article class="card">
+							<a href="#" class="media">
+								<img src="https://picsum.photos/320/200" alt="aleatoire" />
+							</a>
+							<div class="flow | content">
+								<h3 class="title">Carte 5</h3>
+								<div class="description">
+									<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+										Officia, quasi expedita.</p>
+								</div>
+								<a href="#" class="btn">Voir plus</a>
+							</div>
+						</article>
+						<article class="card" data-size="extra-wide">
+							<a href="#" class="media">
+								<img src="https://picsum.photos/320/180" alt="aleatoire" />
+							</a>
+							<div class="flow | content">
+								<h3 class="title">Carte 6 Extra large</h3>
+								<div class="description">
+									<p class="txt-preview">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+										Voluptatibus rerum ad animi placeat aliquid mollitia ducimus 
+										iste dolorem voluptate fugit? Deserunt repudiandae dicta 
+										laborum esse eos. Architecto accusamus distinctio error!</p>
+								</div>
+								<a href="#" class="btn">Voir plus</a>
+							</div>
+						</article>
 					</div>
-					<div class="swiper-pagination"></div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
-				</div>
-				<h3>Loop</h3>
-				<div class="swiper" data-component="Carousel" data-loop>
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=1" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=2" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=3" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=4" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=5" alt="random image">
-						</div>
-					</div>
-					<div class="swiper-pagination"></div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
-				</div>
-				<h3>Autoplay</h3>
-				<div class="swiper" data-component="Carousel" data-autoplay>
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=1" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=2" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=3" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=4" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=5" alt="random image">
-						</div>
-					</div>
-					<div class="swiper-pagination"></div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
-				</div>
-				<h3>Transitions: Fade</h3>
-				<div class="swiper" data-component="Carousel" data-transition="fade">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=1" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=2" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=3" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=4" alt="random image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://picsum.photos/680/420?random=5" alt="random image">
-						</div>
-					</div>
-					<div class="swiper-pagination"></div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
 				</div>
 			</section>
 		</main>
-		<footer class="clr-text">
-			<div class="container">
-				<p>Shayne Fortier &copy; 2023. Tous droits réservés</p>
-			</div>
-		</footer>
+		@@include('layouts/_footer.html')
 	</body>
 </html>
 

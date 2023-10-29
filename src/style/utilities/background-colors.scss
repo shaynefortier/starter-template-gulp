@@ -1,0 +1,47 @@
+@use '../globals/settings';
+/* ==================================================
+Change section or area background colors
+================================================== */
+
+@each $bg-color, $color in settings.$color-name{
+    .bg-clr-#{$bg-color}{
+        background-color: var(--color-#{$bg-color});
+        color: var(--color-#{$color});
+
+        @if $bg-color == accent{
+            a{
+                color: var(--color-secondary);
+                &:hover, &:focus-visible{
+                    color: var(--color-secondary-hover);
+                }
+
+                &:focus-visible{
+                    outline-color: var(--color-secondary-hover);
+                }
+            }
+        }
+    }
+}
+
+@if settings.$dark-mode{
+    @media (prefers-color-scheme: dark){
+        @each $bg-color, $color in settings.$color-name-dark{
+            .bg-clr-#{$bg-color}{
+                background-color: var(--color-#{$bg-color});
+                color: var(--color-#{$color});
+                @if $bg-color == primary{
+                    a{
+                        color: var(--color-secondary);
+                        &:hover, &:focus-visible{
+                            color: var(--color-secondary-hover);
+                        }
+        
+                        &:focus-visible{
+                            outline-color: var(--color-secondary-hover);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
