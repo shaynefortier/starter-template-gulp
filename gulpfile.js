@@ -85,4 +85,4 @@ function templating(){
 }
 
 exports.default = series(clean, templating, copyAssets, buildSass, buildJS, copyJS, parallel(watchFiles, serve));
-exports.build = series(clean, copyHTML, copyAssets, buildSass, buildJS, copyJS, postBuild);
+exports.build = series(clean, templating, copyAssets, buildSass, buildJS, copyJS, postBuild);
