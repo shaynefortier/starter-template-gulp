@@ -3,7 +3,7 @@
     position: relative;
 }
 
-header, main, footer, .full-width{
+header, main, footer, .full-width, .content-grid{
     display: grid;
     grid-template-columns: 
         [full-width-start] minmax(var(--section-pad-inline), 1fr) 
