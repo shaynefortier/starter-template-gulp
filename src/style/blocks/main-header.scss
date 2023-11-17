@@ -10,7 +10,7 @@ $breakpoints: 60em;
     justify-content: space-between;
     align-items: center;
     row-gap: var(--gutter);
-    width: min(100% - var(--section-pad-block-xs), var(--max-width));
+    width: 100%;
     margin-inline: auto;
     padding-block: var(--section-pad-block-xs);
 

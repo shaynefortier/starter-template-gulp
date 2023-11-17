@@ -3,6 +3,34 @@
     position: relative;
 }
 
+header, main, footer, .full-width{
+    display: grid;
+    grid-template-columns: 
+        [full-width-start] minmax(var(--section-pad-inline), 1fr) 
+        [breakout-start] minmax(0, var(--section-pad-block-sm)) 
+        [content-start] 
+        min(100% - var(--section-pad-inline) * 2, var(--max-width)) 
+        [content-end] 
+        minmax(0, var(--section-pad-block-sm)) [breakout-end] 
+        minmax(var(--section-pad-inline), 1fr) [full-width-end];
+
+    & > *{
+        grid-column: content;
+    }
+
+    & > .breakout{
+        grid-column: breakout;
+    }
+
+    & > .full-width{
+        grid-column: full-width;
+    }
+}
+
+section{
+    padding-block: var(--section-pad-block);
+}
+
 /* links */
 a {
     color: var(--color-accent);

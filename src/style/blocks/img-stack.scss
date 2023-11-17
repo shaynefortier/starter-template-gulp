@@ -8,6 +8,7 @@ It stacks the content over a background image
     overflow: hidden;
     isolation: isolate;
     min-height: var(--_height, fit-content);
+    padding-block: 0;
     
     & > * {
         grid-column: 1 / -1;
