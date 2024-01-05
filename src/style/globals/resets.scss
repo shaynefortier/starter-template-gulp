@@ -18,17 +18,10 @@ you set up your own reset preferences.
     font: inherit;
 }
 
-:focus-visible{
-    outline-width: var(--_thikness, 2px);
-    outline-style: var(--_outline-style, solid);
-    outline-color: var(--color-accent-hover);
-    outline-offset: var(--_offset, 2px);
-}
-
 html {
     color-scheme: dark light;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: clip;
+    hanging-punctuation: first last;
 }
 
 body {
@@ -36,7 +29,7 @@ body {
     font-size: var(--ft-normal);
     background-color: var(--color-background);
     color: var(--color-text);
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 svg,
@@ -54,4 +47,26 @@ img, picture{
     background-repeat: no-repeat;
     background-size: cover;
     shape-margin: 0.75rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+p {
+    max-width: 75ch; // Need to add custom property
+    text-wrap: pretty;
+}
+
+:focus-visible{
+    outline-width: var(--_thikness, 2px);
+    outline-style: var(--_outline-style, solid);
+    outline-color: var(--color-accent-hover);
+    outline-offset: var(--_offset, 2px);
+}
+
+@media (prefers-reduced-motion: no-preference){
+    :has(:target){
+        scroll-behavior: smooth;
+    }
 }
